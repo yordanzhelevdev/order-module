@@ -37,6 +37,10 @@ input[type=search]::-webkit-search-cancel-button {
   opacity: 0;
 }
 
+.overflow-x-auto {
+  overflow-x: auto;
+}
+
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
   from {
@@ -263,7 +267,7 @@ input[type=search]::-webkit-search-cancel-button {
 }
 .prod-block__text {
   padding: 10px;
-  background-color: #342F2B;
+  background-color: #342f2b;
   color: white;
 }
 .prod-block__imgs > *:not(:first-child) {
@@ -287,23 +291,19 @@ input[type=search]::-webkit-search-cancel-button {
   color: white;
   text-align: center;
 }
-.prod-block__sizes > * + * {
-  margin-top: 10px;
-}
 .prod-block__size {
   display: flex;
+  align-items: flex-start;
 }
 .prod-block__box {
   position: relative;
   color: white;
   text-align: center;
   background: #342f2b;
+  margin: 5px;
 }
 .prod-block__box--started {
-  background: #3A7F60;
-}
-.prod-block__box + .prod-block__box {
-  margin-left: 10px;
+  background: #3a7f60;
 }
 .prod-block__size > .prod-block__box {
   min-width: 50px;
@@ -311,12 +311,14 @@ input[type=search]::-webkit-search-cancel-button {
   line-height: 25px;
 }
 .prod-block__counter {
-  margin-left: 10px;
   display: flex;
+  flex-wrap: wrap;
+  margin: 0px 0px 10px 5px;
 }
 .prod-block__counter > .prod-block__box {
   width: 40px;
   line-height: 25px;
+  height: 35px;
 }
 
 @media all and (max-width: 575px) {

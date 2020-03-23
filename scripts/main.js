@@ -7,8 +7,12 @@
 // })
 // function popUpOpen(e) { e.find('.popup').toggleClass('popup--visible'); }
 
+// $('.js-search-toggler').on('click', function() {
+
+// });
+
+// Смяна от крояч на шивач и обратно
 $('input[name="filter-role"]').on('change', function() {
-    // console.log($(this));
     if ($(this).is('#tailor')) {
         $('.prod-block').addClass('prod-block--tailor');
     }
@@ -24,11 +28,11 @@ $notSelected.each(function() {
     var $currentBlockSizes = $(this).find('.js-status-change:not(.prod-block__box--started)');
 
     $currentBlockSizes.each(function() {
-        console.log($(this).first());
-        
+        // console.log($(this).first());
         $(this).first().on('click', function () {
-            console.log($(this));
+            // console.log($(this));
             $(this).find('.popup').toggleClass('popup--visible');
+
             // $(this).addClass('prod-block__box--started');
         });
 
@@ -37,15 +41,28 @@ $notSelected.each(function() {
 });
 
 
-// $('.prod-block__counter .js-status-change:not(.prod-block__box--started)').on('click', function(e) {
-//     console.log('dsadasd');
-//     // e.stopImmediatePropagation();
-//     $(this).find('.popup').toggleClass('popup--visible');
-//     console.log('test');
-// })
+$('.prod-block__counter .js-status-change').on('click', function(e) {
+    console.log($(this).index());
+    // console.log('dsadasd');
+    // e.stopImmediatePropagation();
+    $(this).find('.popup').toggleClass('popup--visible');
+    console.log('test');
+})
 
 $('.js-status-start').on('click', function() {
+    var counter = 0;
+    
     $(this).parents('.js-status-change').addClass('prod-block__box--started');
+
+    counter = $(this).parents(".prod-block__counter").find(".prod-block__box--started").length;
+
+    $(this)
+        .parents(".prod-block__counter")
+        .find(".prod-block__box--started")
+        .last()
+        .text(counter);
+
+
 });
 
 
