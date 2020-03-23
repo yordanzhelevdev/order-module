@@ -121,7 +121,7 @@ input[type="search"]::-webkit-search-cancel-button {
   }
 
   &__search {
-    position: relative;
+    // position: relative;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -154,17 +154,17 @@ input[type="search"]::-webkit-search-cancel-button {
     }
     &__input {
         position: absolute;
-        top: 40px;
-        left: -10px;
+        top: 100%;
+        left: 0;
         width: 0;
         padding: 0;
         border: 0;
-        transition: width 1s;
+        transition: all .5s;
         z-index: 1;
     }
 
     &__checkbox:checked ~ &__input {
-        width: calc(100% + 20px);
+        width: 100%;
         padding: 9px;
     }
 }
@@ -337,4 +337,10 @@ input[type="search"]::-webkit-search-cancel-button {
     width: 40px;
     line-height: 25px;
   }
+}
+
+@media all and (max-width: 575px) {
+    .prod-block__sizes {
+        margin-top: 10px;
+    }
 }
