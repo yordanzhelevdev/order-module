@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>fslightbox.js</title>
+    <link rel="stylesheet" href="/demo/index.css" />
+</head>
+<body>
+<div>
+    <div style="height: 500px"></div>
+    <a data-fslightbox="gallery" data-type="video"
+       href="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">
+        <div class="embed-container">
+            xd
+            <!--            <img src="../assets/placeholder.jpg">-->
+        </div>
+    </a>
+
+    <!--    <iframe id="custom-source"-->
+    <!--            frameborder="0"-->
+    <!--            width="720px"-->
+    <!--            height="520px"-->
+    <!--            allow="autoplay; fullscreen"-->
+    <!--            src="https://www.youtube.com/embed/xshEZzpS4CQ?autoplay=1">-->
+    <!--    </iframe>-->
+</div>
+
+<style>
+    .fslightbox-custom {
+        display: block !important;
+    }
+</style>
+
+<script src="/demo/index.js">
+</script>
+<script>
+    fsLightboxInstances['gallery'].props.slideDistance = .4;
+    fsLightboxInstances['gallery'].props.loadOnlyCurrentSource = true;
+    fsLightboxInstances['gallery'].props.onOpen = () => {
+    };
+    fsLightboxInstances['gallery'].open();
+
+
+    setTimeout(() => {
+        const a = document.createElement('a');
+        a.setAttribute('data-fslightbox', 'gallery');
+        a.setAttribute('href', 'some invalid');
+        document.body.appendChild(a);
+
+        refreshFsLightbox();
+        fsLightboxInstances['gallery'].open();
+    }, 1000);
+</script>
+</body>
+</html>

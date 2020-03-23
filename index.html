@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Изпълнение на поръчка</title>
+    <script src="https://kit.fontawesome.com/10f6875dca.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="scripts/datepicker/css/classic.css">
+    <link rel="stylesheet" href="scripts/datepicker/css/classic.date.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="orders">
+            <header class="orders__filters">
+                <div class="orders__col"> 24.07.2020</div>
+
+                <!-- Прозводител -->
+                <div class="orders__col">
+                    <select class="select-input">
+                        <option>Прозводител</option>
+                        <option>Krass Fashion</option>
+                        <option>Maxi Moda</option>
+                        <option>Gucci</option>
+                    </select>
+                </div>
+
+                <!-- Статус -->
+                <div class="orders__col">
+                    <select class="select-input">
+                        <option>Статус</option>
+                        <option>Изпълнява се</option>
+                        <option>Готова</option>
+                        <option>За кроене</option>
+                        <option>Започнат</option>
+                        <option>За шиене</option>
+                        <option>Зашито</option>
+                    </select>
+                </div>
+
+                <!-- Крояч / Шивач  -->
+                <div class="orders__col">
+                    <div>
+                        <div class="form-check">
+                            <input class="form-check-input" id="fitter" type="radio" name="filter-role" value="tailor"
+                                checked>
+                            <label class="form-check-label" for="fitter">Крояч</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" id="tailor" type="radio" name="filter-role" id="tailor"
+                                value="tailor">
+                            <label class="form-check-label" for="tailor">Шивач</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="orders__col">
+                    <div class="orders__search">
+
+                        <div class="search">
+                            <label class="search__toggler" for="search-checkbox">
+                                <i class="search__indicator-icon fas fa-search"></i>
+                            </label>
+                            <input id="search-checkbox" class="isHidden search__checkbox" type="checkbox">
+                            <!-- <div class="search-toggler"><i class="search__indicator-icon fas fa-search"></i></div> -->
+                            <input class="search__input" type="search" />
+                        </div>
+                        <span>Потребител: админ</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Orders wrapper -->
+            <div class="orders__wrapper">
+
+                <!-- Order block -->
+                <div class="prod-block">
+
+                    <div class="row">
+                        <div class="col-2">
+
+
+                            <div class="prod-block__info">
+                                <div class="prod-block__text">
+                                    <div class="prod-block__name">Топла макси туника от плетиво с поло яка</div>
+                                    <div class="prod-block__code">№ DR1523</div>
+                                </div>
+                                <div>
+                                    <div class="prod-block__imgs">
+                                        <a class="prod-block__img" data-fslightbox="gallery" href="images/1.jpg"
+                                            style="background-image: url('images/1.jpg');"></a>
+                                        <a class="prod-block__img" style="background-image: url('images/2.jpg');"
+                                            data-fslightbox="gallery" href="images/2.jpg"></a>
+                                    </div>
+                                    <div class="prod-block__comment" data-toggle="modal" data-target="#commentModal">
+                                        Коментар</div>
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+
+                        <div class="col-10">
+                            <!-- Размери -->
+                            <div class="prod-block__sizes">
+                                <!-- XL -->
+                                <div class="prod-block__size">
+                                    <div class="prod-block__box">XL</div>
+                                    <div class="prod-block__box">5бр.</div>
+
+                                    <div class="prod-block__counter">
+                                        <div class="prod-block__box js-status-change prod-block__box--started">
+                                            <div class="popup">
+                                                <button class="btn btn-success js-status-start">Започни</button>
+                                            </div>
+                                        </div>
+                                        <div class="prod-block__box js-status-change">
+                                            <div class="popup">
+                                                <button class="btn btn-success js-status-start">Започни</button>
+                                            </div>
+                                        </div>
+                                        <div class="prod-block__box js-status-change">
+                                            <div class="popup">
+                                                <button class="btn btn-success js-status-start">Започни</button>
+                                            </div>
+                                        </div>
+                                        <div class="prod-block__box js-status-change">
+                                            <div class="popup">
+                                                <button class="btn btn-success js-status-start">Започни</button>
+                                            </div>
+                                        </div>
+                                        <div class="prod-block__box js-status-change">
+                                            <div class="popup">
+                                                <button class="btn btn-success js-status-start">Започни</button>
+                                            </div>
+                                        </div>
+                                        <div class="prod-block__box js-status-change">
+                                            <div class="popup">
+                                                <button class="btn btn-success js-status-start">Започни</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 2XL -->
+                                <div class="prod-block__size">
+                                    <div class="prod-block__box">2XL</div>
+                                    <div class="prod-block__box">11бр.</div>
+
+                                    <div class="prod-block__counter">
+                                        <div class="prod-block__box js-status-change prod-block__box--started"></div>
+                                        <div class="prod-block__box js-status-change prod-block__box--started"></div>
+                                        <div class="prod-block__box js-status-change prod-block__box--started"></div>
+                                        <div class="prod-block__box js-status-change prod-block__box--started"></div>
+                                        <div class="prod-block__box js-status-change"></div>
+                                        <div class="prod-block__box js-status-change"></div>
+                                        <div class="prod-block__box js-status-change"></div>
+                                        <div class="prod-block__box js-status-change"></div>
+                                        <div class="prod-block__box js-status-change"></div>
+                                        <div class="prod-block__box js-status-change"></div>
+                                        <div class="prod-block__box js-status-change"></div>
+                                    </div>
+                                </div>
+
+                                <!-- 3XL -->
+                                <div class="prod-block__size">
+                                    <div class="prod-block__box">3XL</div>
+                                    <div class="prod-block__box">6бр.</div>
+
+                                    <div class="prod-block__counter">
+                                        <div class="prod-block__box js-status-change"></div>
+                                        <div class="prod-block__box js-status-change"></div>
+                                        <div class="prod-block__box js-status-change"></div>
+                                        <div class="prod-block__box js-status-change"></div>
+                                        <div class="prod-block__box js-status-change"></div>
+                                        <div class="prod-block__box js-status-change"></div>
+                                    </div>
+                                </div>
+
+                                <!-- 4XL -->
+                                <div class="prod-block__size">
+                                    <div class="prod-block__box">4XL</div>
+                                    <div class="prod-block__box">2бр.</div>
+
+                                    <div class="prod-block__counter">
+                                        <div class="prod-block__box"></div>
+                                        <div class="prod-block__box"></div>
+                                    </div>
+                                </div>
+
+                                <!-- 5XL -->
+                                <div class="prod-block__size">
+                                    <div class="prod-block__box">5XL</div>
+                                    <div class="prod-block__box">8бр.</div>
+
+                                    <div class="prod-block__counter">
+                                        <div class="prod-block__box"></div>
+                                        <div class="prod-block__box"></div>
+                                        <div class="prod-block__box"></div>
+                                        <div class="prod-block__box"></div>
+                                        <div class="prod-block__box"></div>
+                                        <div class="prod-block__box"></div>
+                                        <div class="prod-block__box"></div>
+                                        <div class="prod-block__box"></div>
+                                    </div>
+                                </div>
+
+                                <!-- 6XL -->
+                                <div class="prod-block__size">
+                                    <div class="prod-block__box">6XL</div>
+                                    <div class="prod-block__box">9бр.</div>
+
+                                    <div class="prod-block__counter">
+                                        <div class="prod-block__box"></div>
+                                        <div class="prod-block__box"></div>
+                                        <div class="prod-block__box"></div>
+                                        <div class="prod-block__box"></div>
+                                        <div class="prod-block__box"></div>
+                                        <div class="prod-block__box"></div>
+                                        <div class="prod-block__box"></div>
+                                        <div class="prod-block__box"></div>
+                                        <div class="prod-block__box"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Comment modal -->
+        <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Коментар</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <textarea class="form-control"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Затвори</button>
+                        <button type="button" class="btn btn-primary">Запази</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <!-- Core -->
+    <script src="scripts/datepicker/picker.js"></script>
+    <!-- Date Picker -->
+    <script src="scripts/datepicker/picker.date.js"></script>
+    <!-- Language -->
+    <!-- <script src="scripts/datepicker/translations/bg_BG.js"></script> -->
+    <!-- Required For Legacy Browsers (IE 8-) -->
+    <script src="scripts/datepicker/legacy.js"></script>
+    <script src="scripts/fslightbox.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>
