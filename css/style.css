@@ -263,6 +263,10 @@ input[type=search]::-webkit-search-cancel-button {
 .prod-block {
   margin-top: 20px;
 }
+.prod-block--ready {
+  filter: grayscale(1);
+  pointer-events: none;
+}
 .prod-block--tailor .prod-block__box--checked {
   background: yellow;
   color: black;

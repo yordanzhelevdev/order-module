@@ -91,6 +91,12 @@ $('.js-status-change').on('click', function() {
     // }
 });
 
+function checkFull() {
+    console.log($('.prod-block .js-status-change').length);
+}
+
+checkFull();
+
 function openPopup(el, status = "start") {
     var popupParent = el.parents('.prod-block__sizes');
     var popup = status === 'start' ? popupParent.find('.js-start') : popupParent.find('.js-end');
