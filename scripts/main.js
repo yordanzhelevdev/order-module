@@ -21,70 +21,92 @@ $('input[name="filter-role"]').on('change', function() {
     }
 });
 
-var $firstNotSelected;
-// var $notSelected = $('.prod-block__counter');
+var currEl;
 
-// $notSelected.each(function() {
-//     var $currentBlockSizes = $(this).find('.js-status-change:not(.prod-block__box--started)');
-
-//     $currentBlockSizes.each(function() {
-//         // console.log($(this).first());
-//         $(this).first().on('click', function () {
-//             // console.log($(this));
-//             $(this).find('.popup').toggleClass('popup--visible');
-
-//             // $(this).addClass('prod-block__box--started');
-//         });
-
-//         return false;
-//     });
-// });
-
-var isClicked = false;
-
-$('.prod-block__counter .js-status-change').on('click', function(e) {
-
-    if($(this).is('.first')) {
-        $(this).find(".popup").toggleClass("popup--visible");
-        if(isClicked) {
-            $(this).toggleClass('first last').next().addClass('first');
-            // $(this).addClass('last');
-            $(this).prev().removeClass('last');
-            $(this).prev().find(".prod-box__counter-num").remove();
-            isClicked = false;
-        }
+$('.js-check').on('click', function(e) {
+    if (!currEl.hasClass('prod-block__box--checked') && currEl.attr("data-first") === "true") {
+        currEl.addClass('prod-block__box--checked');
+        currEl.attr('data-first', false);
+        currEl.next().attr('data-first', true);
+        currEl.attr('data-last', true);
+        currEl.prev().attr('data-last', false);
     }
 
-    else if($(this).is('.last')) {
-        $(this).find(".popup").toggleClass("popup--visible");
-        if(isClicked){
-            $(this).toggleClass("last first").removeClass("prod-block__box--started ");
-            $(this).next().removeClass('first');
-            $(this).prev().addClass('last');
-            $(this).find(".prod-box__counter-num").remove();
-            isClicked = false;
-        }
+    else if (currEl.hasClass('prod-block__box--checked') && currEl.attr('data-last') === "true") {
+        console.log('Green');
+        currEl.removeClass('prod-block__box--checked');
+        currEl.attr('data-first', true);
+        currEl.attr('data-last', false);
+        currEl.next().attr('data-first', false);
+        currEl.prev().attr('data-last', true);
     }
 
-})
-
-$('.js-status-start').on('click',function() {
-    var counter = 0; 
-    console.log($(this).parents(".js-status-change"));
-    $(this).parents('.js-status-change').addClass('prod-block__box--started');
-    
-    if($(this).parents('.js-status-change.last')) {
-        counter = 0;
-        console.log('Yes');
-    }
-    
-    counter = $(this).parents(".prod-block__counter").find(".prod-block__box--started").length;
-    console.log(counter);
-
-    $(this).parents(".prod-block__counter").find(".prod-block__box--started.last").prepend('<span class="prod-box__counter-num">'+counter+'</span>');
-    
-    isClicked = true;
+    currEl = undefined;
+    closePopup();
 });
+
+
+$('.js-status-change').on('click', function() {
+    currEl = $(this);
+    if (!$(this).hasClass('prod-block__box--checked') && $(this).attr("data-first") === "true") {
+        openPopup($(this), 'start');
+    }
+
+    else if ($(this).hasClass('prod-block__box--checked') && $(this).attr('data-last') === "true") {
+        openPopup($(this), 'end');
+    }
+
+    // Ако елемента няма клас чекд и ако атрибута му е тру 
+
+    // console.log($(this).next());
+    // debugger;
+    // console.log(typeof $(this).attr("data-first"));
+    // Ако не е чекнато и ако е първото сиво поленце
+    // if (!$(this).hasClass('prod-block__box--checked') && $(this).attr("data-first") === "true") {
+    //     //Ще има проверка ако бутона в попъп-а е натиснат
+    //         openPopup($(this));
+    //         $(this).addClass('prod-block__box--checked');
+    //         $(this).attr('data-first', false);
+    //         $(this).next().attr('data-first', true);
+    //         $(this).attr('data-last', true);
+    //         $(this).prev().attr('data-last', false);
+    // }
+
+    // else if ($(this).hasClass('prod-block__box--checked') && $(this).attr('data-last') === "true") {
+    //     console.log('Green');
+
+    //     openPopup($(this));
+
+    //     //Покажи попъпа за отказване и ако е натиснат изпълни тези команди
+    //     $(this).removeClass('prod-block__box--checked');
+    //     $(this).attr('data-first', true);
+    //     $(this).attr('data-last', false);
+    //     $(this).next().attr('data-first', false);
+    //     $(this).prev().attr('data-last', true);
+
+    //     // console.log('Yesss');
+    // }
+});
+
+function openPopup(el, status = "start") {
+    var popup = status === 'start' ? $('.js-start') : ($('.js-end'));
+
+    var elTopPos = $(el).position().top - popup.outerHeight();
+    var elLeftPos = $(el).position().left - $(el).outerWidth() - 15;
+
+    popup.addClass('popup--visible').css({
+        'top' : elTopPos,
+        'left' : elLeftPos
+    });
+}
+
+function closePopup() {
+    var popup = $('.js-start, .js-end');
+    popup.removeClass('popup--visible').css({
+        'top': 0,
+        'left': 0
+    });
+}
 
 
 // - След това следват кутийки, които представляват броя поръчани бройки от продукта.
