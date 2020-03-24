@@ -11,6 +11,13 @@
 
 // });
 
+function checkFull(currProd) {
+    // console.log(currProd.find('.prod-block__box--checked').length);
+    if (currProd.find('.js-status-change').length === currProd.find('.prod-block__box--checked').length) {
+        $(currProd).addClass('prod-block--ready');
+    }
+}
+
 // Смяна от крояч на шивач и обратно
 $('input[name="filter-role"]').on('change', function() {
     var parent = $(this).parents('.orders');
@@ -33,6 +40,7 @@ $('.js-check').on('click', function(e) {
         currEl.next().attr('data-first', true);
         currEl.attr('data-last', true);
         currEl.prev().attr('data-last', false);
+        checkFull($(this).parents('.prod-block'));
     }
 
     else if (currEl.hasClass('prod-block__box--checked') && currEl.attr('data-last') === "true") {
@@ -90,13 +98,6 @@ $('.js-status-change').on('click', function() {
     //     // console.log('Yesss');
     // }
 });
-
-//То до
-// function checkFull(currProd) {
-//     $('.prod-block .js-status-change').length === currProd.find('.block__box--checked').length);
-// }
-
-checkFull();
 
 function openPopup(el, status = "start") {
     var popupParent = el.parents('.prod-block__sizes');
