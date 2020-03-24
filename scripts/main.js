@@ -13,13 +13,14 @@
 
 // Смяна от крояч на шивач и обратно
 $('input[name="filter-role"]').on('change', function() {
+    var parent = $(this).parents('.orders');
     if ($(this).is('#tailor')) {
-        $('.prod-block').addClass('prod-block--tailor');
-        $('.js-start .js-check').text('Ушито');
+        parent.find('.prod-block').addClass('prod-block--tailor');
+        parent.find('.js-start .js-check').text('Ушито');
     }
     else {
-        $('.prod-block').removeClass('prod-block--tailor');
-        $('.js-start .js-check').text('Започни кроене');
+        parent.find('.prod-block').removeClass('prod-block--tailor');
+        parent.find('.js-start .js-check').text('Започни кроене');
     }
 });
 
@@ -91,7 +92,8 @@ $('.js-status-change').on('click', function() {
 });
 
 function openPopup(el, status = "start") {
-    var popup = status === 'start' ? $('.js-start') : ($('.js-end'));
+    var popupParent = el.parents('.prod-block__sizes');
+    var popup = status === 'start' ? popupParent.find('.js-start') : popupParent.find('.js-end');
 
     var elTopPos = $(el).position().top - popup.outerHeight();
     var elLeftPos = $(el).position().left - $(el).outerWidth() - 15;
