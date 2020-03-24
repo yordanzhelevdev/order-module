@@ -91,9 +91,10 @@ $('.js-status-change').on('click', function() {
     // }
 });
 
-function checkFull() {
-    console.log($('.prod-block .js-status-change').length);
-}
+//То до
+// function checkFull(currProd) {
+//     $('.prod-block .js-status-change').length === currProd.find('.block__box--checked').length);
+// }
 
 checkFull();
 
