@@ -15,9 +15,11 @@
 $('input[name="filter-role"]').on('change', function() {
     if ($(this).is('#tailor')) {
         $('.prod-block').addClass('prod-block--tailor');
+        $('.js-start .js-check').text('Ушито');
     }
     else {
         $('.prod-block').removeClass('prod-block--tailor');
+        $('.js-start .js-check').text('Започни кроене');
     }
 });
 
