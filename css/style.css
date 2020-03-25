@@ -244,6 +244,10 @@ input[type=search]::-webkit-search-cancel-button {
   color: white;
   text-align: center;
 }
+.prod-block__comment:hover {
+  cursor: pointer;
+  background: #1E1915;
+}
 .prod-block__size {
   display: flex;
   align-items: flex-start;
