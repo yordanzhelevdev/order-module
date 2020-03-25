@@ -33,39 +33,53 @@ $('input[name="filter-role"]').on('change', function() {
 
 var currEl;
 
-$('.js-check').on('click', function(e) {
-    if (!currEl.hasClass('prod-block__box--checked') && currEl.attr("data-first") === "true") {
+// $('.js-check').on('click', function(e) {
+//     if (!currEl.hasClass('prod-block__box--checked') && currEl.attr("data-first") === "true") {
+//         currEl.addClass('prod-block__box--checked');
+//         currEl.attr('data-first', false);
+//         currEl.next().attr('data-first', true);
+//         currEl.attr('data-last', true);
+//         currEl.prev().attr('data-last', false);
+//         checkFull($(this).parents('.prod-block'));
+//     }
+
+//     else if (currEl.hasClass('prod-block__box--checked') && currEl.attr('data-last') === "true") {
+//         console.log('Green');
+//         currEl.removeClass('prod-block__box--checked');
+//         currEl.attr('data-first', true);
+//         currEl.attr('data-last', false);
+//         currEl.next().attr('data-first', false);
+//         currEl.prev().attr('data-last', true);
+//     }
+
+//     currEl = undefined;
+//     closePopup();
+// });
+
+
+$('.js-status-change').on('dblclick', function() {
+    currEl = $(this);
+    if (!$(this).hasClass('prod-block__box--checked') && $(this).attr("data-first") === "true") {
         currEl.addClass('prod-block__box--checked');
         currEl.attr('data-first', false);
         currEl.next().attr('data-first', true);
         currEl.attr('data-last', true);
         currEl.prev().attr('data-last', false);
         checkFull($(this).parents('.prod-block'));
+        // openPopup($(this), 'start');
     }
 
-    else if (currEl.hasClass('prod-block__box--checked') && currEl.attr('data-last') === "true") {
+    else if ($(this).hasClass('prod-block__box--checked') && $(this).attr('data-last') === "true") {
         console.log('Green');
         currEl.removeClass('prod-block__box--checked');
         currEl.attr('data-first', true);
         currEl.attr('data-last', false);
         currEl.next().attr('data-first', false);
         currEl.prev().attr('data-last', true);
+        // openPopup($(this), 'end');
     }
 
     currEl = undefined;
-    closePopup();
-});
-
-
-$('.js-status-change').on('click', function() {
-    currEl = $(this);
-    if (!$(this).hasClass('prod-block__box--checked') && $(this).attr("data-first") === "true") {
-        openPopup($(this), 'start');
-    }
-
-    else if ($(this).hasClass('prod-block__box--checked') && $(this).attr('data-last') === "true") {
-        openPopup($(this), 'end');
-    }
 
     // Ако елемента няма клас чекд и ако атрибута му е тру 
 
@@ -99,26 +113,26 @@ $('.js-status-change').on('click', function() {
     // }
 });
 
-function openPopup(el, status = "start") {
-    var popupParent = el.parents('.prod-block__sizes');
-    var popup = status === 'start' ? popupParent.find('.js-start') : popupParent.find('.js-end');
+// function openPopup(el, status = "start") {
+//     var popupParent = el.parents('.prod-block__sizes');
+//     var popup = status === 'start' ? popupParent.find('.js-start') : popupParent.find('.js-end');
 
-    var elTopPos = $(el).position().top - popup.outerHeight();
-    var elLeftPos = $(el).position().left - $(el).outerWidth() - 15;
+//     var elTopPos = $(el).position().top - popup.outerHeight();
+//     var elLeftPos = $(el).position().left - $(el).outerWidth() - 15;
 
-    popup.addClass('popup--visible').css({
-        'top' : elTopPos,
-        'left' : elLeftPos
-    });
-}
+//     popup.addClass('popup--visible').css({
+//         'top' : elTopPos,
+//         'left' : elLeftPos
+//     });
+// }
 
-function closePopup() {
-    var popup = $('.js-start, .js-end');
-    popup.removeClass('popup--visible').css({
-        'top': 0,
-        'left': 0
-    });
-}
+// function closePopup() {
+//     var popup = $('.js-start, .js-end');
+//     popup.removeClass('popup--visible').css({
+//         'top': 0,
+//         'left': 0
+//     });
+// }
 
 
 // - След това следват кутийки, които представляват броя поръчани бройки от продукта.
