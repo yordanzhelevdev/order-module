@@ -17,8 +17,18 @@ function checkFull(currProd) {
         $(currProd).addClass('prod-block--ready');
         $(currProd).find('.prod-block__text').addClass('js-prod-toggle');
         $(currProd).find('.row').slideUp('slow');
+
         $('.js-prod-toggle').on('click', function () {
-            $(this).next('.row').slideToggle();
+            // console.log($(this).next('.row').is(":visible"));
+            if($(this).next('.row').is(":visible")) {
+                $(this).removeClass('prod-block__text--visible').next('.row').slideUp('slow');
+                // $(this).next('.row').slideUp('slow');
+            }
+            else {
+                $(this).addClass('prod-block__text--visible').next('.row').slideDown('slow');
+            }
+            
+            // $(this).next('.row').slideToggle();
         });
     }
 }

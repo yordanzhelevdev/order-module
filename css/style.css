@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Resets */
 label {
   margin: 0;
@@ -217,6 +218,15 @@ input[type=search]::-webkit-search-cancel-button {
 .prod-block--ready .prod-block__text {
   cursor: pointer;
 }
+.prod-block--ready .prod-block__text::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  display: block;
+}
+.prod-block--ready .prod-block__text--visible::after {
+  transform: rotate(180deg);
+}
 .prod-block--ready .row {
   pointer-events: none;
 }
@@ -228,6 +238,7 @@ input[type=search]::-webkit-search-cancel-button {
   position: relative;
 }
 .prod-block__text {
+  position: relative;
   text-align: center;
   padding: 10px;
   background-color: #342f2b;
