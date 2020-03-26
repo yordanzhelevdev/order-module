@@ -227,7 +227,10 @@ input[type="search"]::-webkit-search-cancel-button {
 .prod-block {
     & { margin-top: 20px; }
 
-    &--ready { filter: grayscale(1); pointer-events: none; }
+    &--ready { 
+        & { filter: grayscale(1); }
+        .row { pointer-events: none; }
+    }
     &--tailor &__box--checked {
         background: yellow;
         color: black;

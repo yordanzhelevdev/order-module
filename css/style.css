@@ -209,6 +209,8 @@ input[type=search]::-webkit-search-cancel-button {
 }
 .prod-block--ready {
   filter: grayscale(1);
+}
+.prod-block--ready .row {
   pointer-events: none;
 }
 .prod-block--tailor .prod-block__box--checked {
