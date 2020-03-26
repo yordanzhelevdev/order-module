@@ -98,6 +98,10 @@ input[type=search]::-webkit-search-cancel-button {
   font-weight: normal;
 }
 
+.orders {
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
 .orders__filters {
   display: flex;
   flex-wrap: wrap;
@@ -209,6 +213,9 @@ input[type=search]::-webkit-search-cancel-button {
 }
 .prod-block--ready {
   filter: grayscale(1);
+}
+.prod-block--ready .prod-block__text {
+  cursor: pointer;
 }
 .prod-block--ready .row {
   pointer-events: none;

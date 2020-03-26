@@ -14,13 +14,18 @@
 function checkFull(currProd) {
     // console.log(currProd.find('.prod-block__box--checked').length);
     if (currProd.find('.js-status-change').length === currProd.find('.prod-block__box--checked').length) {
-        $(currProd).addClass('prod-block--ready js-prod-toggle');
+        $(currProd).addClass('prod-block--ready');
+        $(currProd).find('.prod-block__text').addClass('js-prod-toggle');
         $(currProd).find('.row').slideUp('slow');
         $('.js-prod-toggle').on('click', function () {
-            $(this).find('.row').slideToggle();
+            $(this).next('.row').slideToggle();
         });
     }
 }
+
+$('.prod-block').each(function(){
+    checkFull($(this));
+});
 
 // Смяна от крояч на шивач и обратно
 $('input[name="filter-role"]').on('change', function() {
