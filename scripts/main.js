@@ -11,14 +11,9 @@
 
 // });
 
-var doubleTouchStartTimestamp = 0;
-$(document).bind("touchstart", function (event) {
-    var now = +(new Date());
-    if (doubleTouchStartTimestamp + 500 > now) {
-        event.preventDefault();
-    };
-    doubleTouchStartTimestamp = now;
-});
+// $(".prod-block__text").on("doubletap", function(e) {
+//     console.log("User tapped #myElement");
+// });
 
 function checkFull(currProd) {
     // console.log(currProd.find('.prod-block__box--checked').length);
@@ -85,7 +80,7 @@ var currEl;
 // });
 
 
-$('.js-status-change').on('dblclick', function() {
+$('.js-status-change').on('doubletap', function() {
     currEl = $(this);
     if (!$(this).hasClass('prod-block__box--checked') && $(this).attr("data-first") === "true") {
         currEl.addClass('prod-block__box--checked');
